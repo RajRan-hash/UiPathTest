@@ -20,7 +20,9 @@ steps:
   - task: UiPathPack@5
     inputs:
       versionType: 'AutoVersion'
-      projectJsonPath: 'C:\Users\rajt2\OneDrive\Documents\UiPath\UiPathTest'
+      projectJsonPath: '$(Build.SourcesDirectory)'
+      splitOutput: false
       orchestratorConnection: 'UiPath Orchestrator'
       outputPath: '$(Build.ArtifactStagingDirectory)\Output'
+
   
