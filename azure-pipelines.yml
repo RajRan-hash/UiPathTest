@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  Default
+  name: 'Default'  # Make sure this matches your self-hosted agent pool name
 
 steps:
 - script: echo Hello, world!
@@ -16,13 +16,12 @@ steps:
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script
-  - task: UiPathPack@5
-    inputs:
-      versionType: 'AutoVersion'
-      projectJsonPath: '$(Build.SourcesDirectory)'
-      splitOutput: false
-      orchestratorConnection: 'UiPath Orchestrator'
-      outputPath: '$(Build.ArtifactStagingDirectory)\Output'
+  displayName: 'Run a multi-line script'
 
+- task: UiPathPack@5
+  inputs:
+    versionType: 'AutoVersion'
+    projectJsonPath: '$(Build.SourcesDirectory)'
+    splitOutput: false
+    outputPath: '$(Build.ArtifactStagingDirectory)\Output'
   
